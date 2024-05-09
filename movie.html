@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="shortcut icon" href="./Assets/2284972.webp" type="image/x-icon">
+    <link rel="stylesheet" href="./index.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: white;
+           
+        }
+
+        #movie-details {
+           
+            margin-top: 50px;
+            color: black;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        #movie-details div {
+            flex: 1;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #posterr {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            #movie-details {
+                padding: 10px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            #movie-details {
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="movie-details">
+        <div>
+            <img id="posterr" src="" alt="Movie Poster">
+        </div>
+        <div>
+            <div>
+                <h1 id="title"></h1>
+                <p id="description"></p>
+            </div><br><br><br><br><br><br><br><br>
+            <div>
+                <p id="rating"></p>
+                <p id="year"></p>
+                <p id="genre"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Parse query parameters
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+
+        // Extract movie data from query parameters
+        const title = urlParams.get('title');
+        const description = urlParams.get('description');
+        const poster = urlParams.get('poster');
+        const rating = urlParams.get('rating');
+        const year = urlParams.get('year');
+        const genre = urlParams.get('genre');
+
+        document.getElementById('title').innerText = title;
+        document.getElementById('description').innerText = description;
+        document.getElementById('posterr').src = poster;
+        document.getElementById('rating').innerText = `Rating 🌟: ${rating}/10`;
+        document.getElementById('year').innerText = `Year: ${year}`;
+        document.getElementById('genre').innerText = `Genre: ${genre}`;
+    </script>
+</body>
+
+</html>
